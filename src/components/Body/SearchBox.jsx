@@ -2,9 +2,7 @@ import React from "react";
 import { useState } from "react";
 import './SearchBox.css';
 
-
 export const SearchBox = () => {
-    // const [searchResults, setSearchResults] = useState([]);
     const [searchAddress, setSearchAddress] = useState("");
     const [searchTerm, setSearchTerm] = useState("");
     let count = 1;
@@ -14,19 +12,18 @@ export const SearchBox = () => {
         setSearchTerm(searchTerm);    
     }
 
+
     const handleClick = (e) => {
-        const url = `https://72ih8opnm2.execute-api.ap-south-1.amazonaws.com/live/`;
+        const url = `https://cors-anywhere.herokuapp.com/https://72ih8opnm2.execute-api.ap-south-1.amazonaws.com/live/`;
         fetch(url)
         .then(res => res.json())
         .then(data => {
             for(var i=0; i<data.length; i++){
                 if(data[i].company_name === searchTerm){
-                    // setSearchResults(data[i].company_name);
                     setSearchAddress(data[i].location);
                     return;
                 }
             }
-            // setSearchResults('');
             setSearchAddress('Please enter a valid company name & also check uppercase-lowercase');
         })
         .catch(err => console.log(err));
