@@ -14,7 +14,7 @@ export const SearchBox = () => {
 
 
     const handleClick = (e) => {
-        const url = `https://cors-anywhere.herokuapp.com/https://72ih8opnm2.execute-api.ap-south-1.amazonaws.com/live/`;
+        const url = `https://agile-atoll-76159.herokuapp.com/https://72ih8opnm2.execute-api.ap-south-1.amazonaws.com/live/`;
         fetch(url)
         .then(res => res.json())
         .then(data => {
